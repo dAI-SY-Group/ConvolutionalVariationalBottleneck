@@ -1,0 +1,21 @@
+#DATA
+data:
+  dataset: MedMNISTPneumonia
+  dataloader: image
+  mean: [0.5719215,]
+  std:  [0.1683513,]
+  shape: [3, 32, 32]
+  train_transformations:
+    ToTensor: []
+    Normalize: []  
+    Resize: [[32, 32]]
+    Grayscale_to_RGB: []
+  val_transformations:
+    ToTensor: []
+    Normalize: []  
+    Resize: [[32, 32]]
+    Grayscale_to_RGB: []
+  shuffle: True
+  use_val: True
+  create_validation_split: 0.1
+num_classes: 2

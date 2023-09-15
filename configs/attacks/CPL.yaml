@@ -1,0 +1,35 @@
+attack:
+  name: CPL
+  metrics: [ScaledMSE, ScaledPSNR, ScaledSSIM, ScaledLPIPS]
+  reconstruction_quality_metric: SSIM
+  reduce_metrics: False
+  train_mode: True
+  attacker_train_mode: True
+  optimizer: 
+    name: LBFGS
+    lr: 0.01
+  scheduler:  #-1 if we dont use lr scheduling else: torch name and parameters for the scheduler
+    name: ReduceLROnPlateau # ReduceLROnPlateau or StepLR (step_size 10-15?) #NOTE: in case of ReduceLROnPlateau make sure validation_frequency=1
+    metric: ReconstructionLoss
+    use_loss: False
+    mode: min # depending on the metric it should track
+    factor: 0.1
+    patience: 40
+  early_stopping: #False or dict with parameters
+    patience: 400
+    delta: 0 # Minimum change in the monitored quantity to qualify as an improvement
+    metric: ReconstructionLoss
+    use_loss: False # only relevant for model training
+    subject_to: min #min / max
+    verbose: False
+  ckpt: 0 
+  rec_seed: 0 
+  victim_batchsize: 1
+  max_iterations: 2000 
+  max_trials: 1
+  init: randn # one of black, white, R, G, B, rand, randn
+  reconstruction_loss: GL2
+  regularization: 0.01
+  top_k: null
+  use_grad_signs: False
+  clip_dummies: False

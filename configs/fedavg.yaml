@@ -1,0 +1,44 @@
+#TRAINING
+training:
+  num_clients: 10
+  weigh_sample_quantity: True
+  epochs: 1
+  save_rounds: [] 
+  batch_size: 64
+  loss: CrossEntropy
+  metrics: [Accuracy] 
+  validation_frequency: 1
+  optimizer: 
+    name: Adam
+    lr: 0.001
+    beta1: 0.9 
+    beta2: 0.999 
+    weight_decay: 0
+  lr_scheduler:  
+    name: ReduceLROnPlateau 
+    metric: CrossEntropy
+    use_loss: True
+    mode: min 
+    factor: 0.5
+    patience: 15
+  early_stopping: 
+    patience: 40
+    delta: 0 
+    metric: CrossEntropy
+    use_loss: True
+    subject_to: min 
+    verbose: True
+  random_client_start: False
+  glob:
+    communication_rounds: 300
+    validation_frequency: 1
+    save_rounds: [] 
+    early_stopping: 
+      patience: 40
+      delta: 0 
+      metric: CrossEntropy
+      use_loss: True
+      subject_to: min
+      verbose: True
+data:
+  distribution_config: homo

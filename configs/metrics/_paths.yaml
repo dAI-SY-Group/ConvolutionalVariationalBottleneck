@@ -1,0 +1,9 @@
+Accuracy: accuracy
+MSE: mse
+ScaledMSE: mse
+PSNR: psnr
+ScaledPSNR: psnr
+SSIM: ssim
+ScaledSSIM: ssim
+LPIPS: lpips
+ScaledLPIPS: lpips

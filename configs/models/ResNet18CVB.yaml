@@ -1,0 +1,25 @@
+model:
+  name: VBResNet18GN
+  gn_groups: 2
+
+  VB: 
+    _class: FullyConvolutionalVariationalBottleneck
+    K: adaptive
+    beta: 0.00005
+    positions: [0]
+    bias: False
+    kernel_size: 5
+
+training:
+  loss: VBLoss
+  lr_scheduler:
+    metric: VBLoss
+  early_stopping:
+    metric: VBLoss
+  glob:
+    early_stopping:
+      metric: VBLoss
+
+attack:
+  ignore_gradient_layers: ['decoder', 'layer2', 'layer3', 'layer4', 'fc']
+  regularization: 0.1

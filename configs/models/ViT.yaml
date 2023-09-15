@@ -1,0 +1,22 @@
+model:
+  name: VisionTransformer
+  transformer_block_mlp:
+    width: 256
+    bias: False
+    activation_function:
+      name: nn.GELU
+      parameters: []
+    regularization_layer:
+      name: MaskDropout
+      parameters: [0]
+  embedding_patch_size: 4
+  embedding_dropout_rate: 0.0
+  transformer_layers: 4
+  hidden_size: 256
+  attention_heads: 16
+  attention_dropout_rate: 0.0
+  bias: False
+
+attack:
+  ignore_gradient_layers: []
+  regularization: 0.0001

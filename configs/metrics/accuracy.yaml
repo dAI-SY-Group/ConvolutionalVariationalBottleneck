@@ -1,0 +1,8 @@
+metrics:
+  Accuracy:
+    name: Accuracy
+    tm_name: Accuracy
+    format: '.2%'
+    subject_to: max
+    metric_args:
+      task: multiclass

@@ -1,0 +1,17 @@
+metrics:
+  PSNR:
+    name: PSNR
+    tm_name: PeakSignalNoiseRatio
+    format: '.5f'
+    subject_to: max
+    metric_args:
+      reduction: none
+  
+  ScaledPSNR:
+    name: PSNR
+    format: '.5f'
+    subject_to: max
+    own_implementation: True
+    metric_args:
+      reduction: none
+      scale_01: True

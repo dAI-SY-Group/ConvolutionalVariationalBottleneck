@@ -1,0 +1,7 @@
+model:
+  name: ResNet18GN
+  gn_groups: 2
+
+attack:
+  ignore_gradient_layers: []
+  regularization: 0.1

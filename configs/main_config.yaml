@@ -1,0 +1,10 @@
+dataset_path: ./data/
+history_path: ./histories/
+checkpoint_path: ./checkpoints/
+dump_path: ./dumps/
+explicit_warning_ignores:
+- 'Failed to load image Python extension: ''/home/dscheliga/.conda/envs/torch2/lib/python3.11/site-packages/torchvision/image.so'''
+- The `reduction=none` will not have any effect when `dim` is None.
+- The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future
+- Arguments other than a weight enum or `None` for 'weights' are deprecated since
+  0.13 and may be removed in the future.

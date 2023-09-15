@@ -1,0 +1,17 @@
+metrics:
+  SSIM:
+    name: SSIM
+    tm_name: StructuralSimilarityIndexMeasure
+    format: '.5f'
+    subject_to: max
+    metric_args:
+      reduction: none
+  
+  ScaledSSIM:
+    name: SSIM
+    format: '.5f'
+    subject_to: max
+    own_implementation: True
+    metric_args:
+      scale_01: True
+      reduction: none

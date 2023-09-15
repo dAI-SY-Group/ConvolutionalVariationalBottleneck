@@ -1,0 +1,20 @@
+metrics:
+  LPIPS:
+    name: LPIPS
+    format: '.5f'
+    subject_to: min
+    own_implementation: True
+    metric_args:
+      scale_01: True
+      reduction: none
+      net_type: 'vgg'
+  
+  ScaledLPIPS:
+    name: LPIPS
+    format: '.5f'
+    subject_to: min
+    own_implementation: True
+    metric_args:
+      scale_01: True
+      reduction: none
+      net_type: 'vgg'

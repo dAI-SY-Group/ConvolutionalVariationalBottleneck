@@ -1,0 +1,15 @@
+metrics:
+  MSE:
+    name: MSE
+    tm_name: MeanSquaredError
+    format: '.6f'
+    subject_to: min
+  
+  ScaledMSE:
+    name: MSE
+    format: '.6f'
+    subject_to: min
+    own_implementation: True
+    metric_args:
+      scale_01: True
+  

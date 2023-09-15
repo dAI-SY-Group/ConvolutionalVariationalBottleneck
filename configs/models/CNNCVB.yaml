@@ -1,0 +1,37 @@
+model:
+  name: VBCNN
+  channels: [16, 32, 64]
+  kernels: [5, 5, 5]
+  stride: 2
+  padding: valid
+  widths: []
+  pooling_positions: []
+  pooling_layer: null
+  conv_regularization_layer: null
+  conv_activation_function:
+    name: nn.ReLU
+    parameters: []
+  mlp_regularization_layer: null
+  mlp_activation_function: null
+
+  VB: 
+    _class: FullyConvolutionalVariationalBottleneck
+    K: adaptive
+    beta: 0.1
+    positions: [0]
+    bias: False
+    kernel_size: 5
+
+training:
+  loss: VBLoss
+  lr_scheduler:
+    metric: VBLoss
+  early_stopping:
+    metric: VBLoss
+  glob:
+    early_stopping:
+      metric: VBLoss
+
+attack:
+  ignore_gradient_layers: ['decoder', '1.conv', '2.conv', 'mlp_layers']
+  regularization: 0.1
